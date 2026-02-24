@@ -1,5 +1,11 @@
 node_modules
 # Keep environment variables out of version control
 .env
+.env.staging
+readme.md
 
-/generated/prisma
+/generated/
+dist
+
+*.log
+npm-debug.log*

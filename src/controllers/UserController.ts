@@ -6,6 +6,7 @@ const userService = new UserService();
 export class UserController {
   async handleCreateUser(req: Request, res: Response) {
     try {
+      console.log('req.body:', req.body)
       const user = await userService.create(req.body);
       return res.status(201).json(user);
     } catch (err: any) {

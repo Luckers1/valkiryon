@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: postgres:15-alpine
-    container_name: docker
+    container_name: radar-db
     restart: always
     environment:
       POSTGRES_USER: docker
@@ -13,6 +13,18 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: radar-api
+    restart: always
+    command: sh -c "npx prisma migrate deploy && node dist/src/server.js"
+    ports:
+      - "3333:3333"
+    env_file:
+      - .env.staging
+    depends_on:
+      - db
 
 volumes:
   postgres_data:

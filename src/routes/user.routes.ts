@@ -10,10 +10,10 @@ const authController = new AuthController();
 
 userRoutes.post('/login', authController.handleLogin);
 
-userRoutes.post('/users', isAuthenticated, userController.handleCreateUser);
-userRoutes.get('/users', isAuthenticated, userController.handleListUsers);
-userRoutes.get('/users/:id', isAuthenticated, userController.handleGetUserById); 
-userRoutes.put('/users/:id', isAuthenticated, userController.handleUpdateUser);
-userRoutes.delete('/users/:id', isAuthenticated, userController.handleDeleteUser);
+userRoutes.post('/users', userController.handleCreateUser);
+userRoutes.get('/users',  userController.handleListUsers);
+userRoutes.get('/users/:id',  userController.handleGetUserById); 
+userRoutes.put('/users/:id', userController.handleUpdateUser);
+userRoutes.delete('/users/:id',  userController.handleDeleteUser);
 
 export { userRoutes };
