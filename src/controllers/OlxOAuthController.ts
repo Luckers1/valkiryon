@@ -32,7 +32,7 @@ export class OlxAuthController {
       scope: 'read write',
     });
 
-    const url = `https://www.olx.com.br/oauth/authorize?${params.toString()}`;
+    const url = `https://auth.olx.com.br/oauth?${params.toString()}`;
 
     return res.redirect(url);
   }
